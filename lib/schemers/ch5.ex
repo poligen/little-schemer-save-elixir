@@ -75,4 +75,8 @@ defmodule Schemers.GawdStars do
   def eqlist([h1 | _], [h2 | _]) when is_atom(h1) or is_atom(h2), do: false
   def eqlist([h1 | t1], [h2 | t2]), do: eqlist(h1, h2) && eqlist(t1, t2)
 
+
+  def equal?(s, s), do: true
+  def equal?(_, _), do: false
+
 end
