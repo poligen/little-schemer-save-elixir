@@ -69,4 +69,10 @@ defmodule Schemers.Friends do
 
   def intersectall([set1 |[]]), do: set1
   def intersectall([ set1 | tail]), do: intersect(set1, intersectall(tail))
+
+  def first([f|_]), do: f
+  def second([_,s|_]), do: s
+  def third([_,_,t|_]), do: t
+  def build(s1, s2), do: [s1, s2]
+
 end

@@ -37,8 +37,5 @@ defmodule Schemers.LambdaTheUltimate do
   def seqL(new, old, list), do: [new, old | list]
   def seqR(new, old, list), do: [old, new | list]
 
-  # p147
-
-
 end
 
