@@ -1,31 +1,15 @@
 defmodule Schemers.Toy do
-@doc """
-the law of car
-"""
 
-def car([head | _]), do: head
+  def car([head | _]), do: head
 
+  def cdr([_ | tail]), do: tail
 
-@doc """
-the law of cdr
-"""
+  def cons(head, tail), do: [head | tail]
 
-def cdr([_ | tail]), do: tail
+  def eq?(a, a) when is_atom(a), do: true
+  def eq?(a, b) when is_atom(a) and is_atom(b), do: false
 
-
-@doc """
-the law of cons
-"""
-
-
-@doc """
-the law of null
-"""
-
-
-@doc """
-the law of eq
-"""
-
+  def null?([]), do: true
+  def null?(_), do: false
 
 end

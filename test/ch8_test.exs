@@ -38,5 +38,11 @@ defmodule TheUltimateTest do
 
   end
 
+  test "multiinsertLR" do
+    assert multiinsertLR(:zap, :l, :r, [:l, :x, :r, :x])
+    ==
+    [:zap, :l, :x, :r, :zap, :x]
+  end
+
 
 end

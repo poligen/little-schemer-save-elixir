@@ -13,7 +13,7 @@ defmodule Schemers.Shadows do
 
   def value([left, :+, right]), do: value(left) + value(right)
   def value([left, :*, right]), do: value(left) * value(right)
-  def value([left, :^, right]), do: :math.pow(value(left), value(right)) 
-
+  def value([left, :^, right]), do: :math.pow(value(left), value(right))
   def value(n) when is_number(n), do: n
+
 end

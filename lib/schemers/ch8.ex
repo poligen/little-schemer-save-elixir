@@ -37,5 +37,35 @@ defmodule Schemers.LambdaTheUltimate do
   def seqL(new, old, list), do: [new, old | list]
   def seqR(new, old, list), do: [old, new | list]
 
+
+  def get_value([left, operator, right]), do: atom_to_function(operator).(get_value(left), get_value(right))
+  def get_value(n) when is_number(n), do: n
+
+
+  def atom_to_function(:+), do: &Kernel.+/2
+  def atom_to_function(:*), do: &Kernel.*/2
+  def atom_to_function(:^), do: &:math.pow/2
+
+@doc """
+:zap
+:l
+:r
+[:l, :x, :r, :x]
+
+=> [:zap, :l, :x, :r, :zap, :x]
+
+"""
+
+  def multiinsertLR(_, _, _, []), do: []
+  def multiinsertLR(new, oldl, oldr, [oldl | t]) do
+    [new | [oldl | multiinsertLR(new, oldl, oldr, t)]]
+  end
+  def multiinsertLR(new, oldl, oldr, [oldr | t]) do
+    [oldr | [new | multiinsertLR(new, oldl, oldr, t)]]
+  end
+  def multiinsertLR(new, oldl, oldr, [h | t]) do
+    [h | multiinsertLR(new, oldl, oldr, t)]
+  end
+
 end
 

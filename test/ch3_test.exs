@@ -64,6 +64,13 @@ defmodule ConsTheMagnificentTest do
     assert multirember(a, lat) == [:lamb, :chops, :and, :jelly, :fish]
   end
 
+  test "multisubst" do
+    a = :monkey
+    b = :mint
+    lat = [:lamb, :chops, :and, :mint, :jelly, :mint, :fish]
+    assert multisubst(a, b, lat) == [:lamb, :chops, :and, :monkey, :jelly, :monkey, :fish]
+  end
+
 
 end
 

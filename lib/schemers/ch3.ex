@@ -41,4 +41,11 @@ defmodule Schemers.ConsTheMagnificent do
   def multirember(word, [word | tail]), do: multirember(word, tail)
   def multirember(word, [head | tail ]), do: [ head | multirember(word, tail)]
 
+
+  def multisubst(_, _, []), do: []
+  def multisubst(word, target , [target | tail]), do: [ word | multisubst(word, target, tail)]
+  def multisubst(word, target, [ head | tail]), do: [head | multisubst(word, target, tail)]
+
+
 end
+
